@@ -1,0 +1,130 @@
+if has('gui_running')
+    :set guifont=DejaVu\ Sans\ Mono\ 14
+    ":set guioptions-=m        " remove menu bar
+    :set guioptions-=T        " remove toolbar
+    ":set guioptions-=r        " remove right-hand scroll bar
+endif
+
+set background=dark " dark or light
+colorscheme grb256
+"colorscheme summerfruit256
+"set t_Co=256
+
+if !exists("g:syntax_on") | syntax enable | endif
+if &compatible | set nocompatible | endif
+set ruler                 " show line/col in status bar
+set wildmenu              " :e <tab> show file list
+set sc                    " Case insensitive search
+set hls                   " highlight search
+set incsearch             " start search when typing
+set showmatch             " highlight matching [],{},()
+
+" --- abbreviations ---
+:ab #--- # ------------------------------------------
+
+" --- wrap text ---
+set lbr                   " wrap text on space
+set tw=70
+set fo-=t
+" gqip                    wrap paragraph
+
+" --- indent ---
+filetype indent off
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+    " >>  ,  << , ==          indent, unindent
+    " =i{ , >i{ , <i{         indent within { }
+    " --- insert mode
+    " ctrl+t , ctrl+d         indent, unindent
+
+" --- fold ---
+highlight Folded ctermbg=black ctermfg=grey cterm=bold
+set fillchars="fold: "
+set foldmethod=indent
+set foldlevelstart=1
+set foldnestmax=1
+" zM , zR                 fold/unfold all
+" za                      fold/unfold
+" [z , ]z                 go to start/end of fold
+" zj , zk                 go to next/previous fold
+
+" --- split ---
+set splitbelow
+set splitright
+    " ctrl+w then
+    "   s , v                 horizontal/vertical split
+    "   =                     normalize size
+    "   w                     switch split
+    "   o                     close all except this
+    "   | , _                 max width/height
+    "   [N] + , -             change height
+    "   [N] < , >             change width
+    "   r                     rotate split
+    "   T                     switch to tabs
+
+" --- navigate ---
+"set mouse=a               " enable mouse clicking
+    " ctrl+[                  esc
+    " :[N]                    go to line N
+    " G                       end of file
+    " t , f [char]            move forward to char (T,F backward)
+    " ;                       repeat above (, backward)
+    " _ , g_ , 0 , ^ , $      start/end of line
+    " H , M , L               top, middle, bottom of screen
+    " zt , zz , zb            scroll the view
+    " ctrl+e , ctrl+y         one line up/down  
+    " ctrl+d , ctrl+u         pagedown/pageup half
+    " ctrl+b , ctrl+f         pageup/pagedown
+    " ctrl+o , ctrl+i         prevous/next cursor position
+    " W , B , E               word based (w, b, e)
+    " ) , (                   next/previous sentence
+    " } , {                   next/previous blank line
+    " '' , ``                 jump between here and last pos
+    " '.                      jump to last edit
+    " %                       matching {} [] ()
+    " # , *                   search word under cursor
+    " -- insert mode
+    " ctrl+o                  issue a single command 
+
+" --- edit ---
+    " u , ctrl+r              undo/redo
+    " .                       repeat
+    " A                       append at end of line
+    " O , o                   new line above/below
+    " D                       delete till end of line
+    " cc                      change line
+    " cw                      change word
+    " s                       delete a char then insert
+    " -- insert mode
+    " (:h ins-special-keys)
+    " ctrl+w                  delete previous word
+    " ctrl+h                  backspace
+    " ctrl+u                  delete to beginning
+    " alt+b                   go back a word
+
+" --- bookmark ---
+    " ma , 'a , `a            create/recall bookmark 'a'
+    "                         use cap for global bookmark
+    " :marks                  list all
+
+" --- buffer ---
+    " :e                      open file
+    " :ls                     list opened buffer
+    " :b 3                    buffer 3
+    " :bn , :bp               next/previous buffer
+    " :bd                     delete a buffer
+    " :sp , :vsp              new buffer in split
+
+" --- autocomplete ---
+    " ctrl+n , ctrl+p
+
+" --- tag ---
+    " ctags *.py
+    " vim -t function         open file and put cursor at function
+    " ctrl+]                  jump to function under cursor
+    " ctrl+o , ctrl+I         back/forward from above
+    " ctrl+t                  all the way back
+
+" --- misc ---
+    " ~                       switch case
