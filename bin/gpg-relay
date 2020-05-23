@@ -1,0 +1,30 @@
+#!/bin/sh
+
+rm "$HOME/.gnupg/S.gpg-agent" 2>/dev/null
+socat UNIX-LISTEN:"$HOME/.gnupg/S.gpg-agent,fork", EXEC:"/mnt/c/Users/Henry/Desktop/wsl-relay.exe --input-closes --pipe-closes --gpg '%AppData%/Roaming/gnupg/S.gpg-agent'",nofork &
+
+#socat UNIX-LISTEN:"$HOME/.gnupg/S.gpg-agent,fork", EXEC:'/mnt/c/Users/henry/Desktop/npiperelay.exe -ei -ep -s -a "%AppData%/Roaming/gnupg/S.gpg-agent"',nofork
+
+
+# --- install go ---
+# wget https://dl.google.com/go/go1.13.7.linux-amd64.tar.gz
+# sudo tar -xvf go1.13.7.linux-amd64.tar.gz
+# sudo mv go /usr/local/
+# export GOROOT=/usr/local/go
+# export PATH=$GOROOT/bin:$PATH
+#
+# --- compile [https://github.com/Lexicality/wsl-relay] ---
+# go get -d github.com/lexicality/wsl-relay
+# GOOS=windows go build -o ~/Desktop/wsl-relay.exe
+# github.com/lexicality/wsl-relay
+# cp ~/go/src/github.com/lexicality/wsl-relay/scripts/gpg-relay ~/bin/
+#
+# --- Setup gpg-agent on windows ---
+# install gpg4win
+# %APPDATA%\gnupg\gpg-agent.conf
+# enable-ssh-support
+# enable-putty-support
+# %AppData%\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
+# create shortcut "C:\Program Files
+# (x86)\GnuPG\bin\gpg-connect-agent.exe" /bye
+
