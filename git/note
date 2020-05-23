@@ -1,0 +1,13 @@
+# empty commit
+git commit -m "initial commit" -S --allow-empty
+
+# include starting commit (using ^)
+git cherry-pick <starting-commit>^..<ending-commit>
+
+# move branch pointer to commit
+git branch -f <branch-name> <new-tip-commit>
+
+# full form of rebase
+git rebase --onto <anchor-commit> <exclude-reachable-via> <reachable-from>
+
+find . -name "*.orig" -delete
