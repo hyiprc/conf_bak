@@ -1,0 +1,5 @@
+alias gl="git log --oneline --all --decorate --graph --date=short --pretty=format:'%C(178)%h %C(88)%ad %C(27)%G? %C(64)%aN  %C(auto)%d %n  %C(255)%<(72,trunc)%s' -10"
+alias gs="git status -b --show-stash"
+alias gshow="git show --name-only"
+alias gb="git branch -vva"
+alias gd="git difftool --tool=vimdiff --no-prompt"
