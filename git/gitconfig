@@ -4,19 +4,24 @@
         signingkey = 0x6CA0299B50275820
 [commit]
         gpgsign = false
+[pull]
+	ff = only
 [core]
 	editor = vim
 [merge]
         tool = vimdiff
         conflictstyle = diff3
+	ff = only
 [mergetool]
         prompt = false
 [alias]
-        uncommit = reset --soft HEAD^
-        discard = reset --hard HEAD^
+        uncommit = reset --soft HEAD~1
+        discard = !git add -A && git commit -qm 'discard_SAVE' && git reset --hard HEAD~1
         unstage = reset HEAD --
         resign = rebase --exec 'git commit --amend --no-edit -n -S' -i
         recommit = "! git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG"
+        sync = "!git remote update -p; git merge --ff-only @{u}"
+        conflict = diff --name-only --diff-filter=U
         s = status -b --show-stash
         ss = show --name-only
         b = branch -vva
