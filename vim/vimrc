@@ -1,3 +1,5 @@
+execute pathogen#infect()
+
 if has('gui_running')
     :set guifont=DejaVu\ Sans\ Mono\ 14
     ":set guioptions-=m        " remove menu bar
