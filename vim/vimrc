@@ -26,7 +26,7 @@ set showmatch             " highlight matching [],{},()
 set lbr                   " wrap text on space
 set tw=70
 set fo-=t
-" gqip                    wrap paragraph
+    " gqip                    wrap paragraph
 
 " --- indent ---
 filetype indent off
@@ -38,22 +38,26 @@ set shiftwidth=4
     " --- insert mode
     " ctrl+t , ctrl+d         indent, unindent
 
+" --- markdown and rst ---
+    " yypVr-                  heading: Underline the current line
+    " :g/^Sect/t.|s/./-/g     heading: global search, t. copy line, substitute
+
 " --- fold ---
 highlight Folded ctermbg=black ctermfg=grey cterm=bold
 set fillchars="fold: "
 set foldmethod=indent
 set foldlevelstart=1
 set foldnestmax=1
-" zM , zR                 fold/unfold all
-" za                      fold/unfold
-" [z , ]z                 go to start/end of fold
-" zj , zk                 go to next/previous fold
+    " zM , zR                 fold/unfold all
+    " za                      fold/unfold
+    " [z , ]z                 go to start/end of fold
+    " zj , zk                 go to next/previous fold
 
 " --- split ---
 set splitbelow
 set splitright
     " ctrl+w then
-    "   s , v                 horizontal/vertical split
+    "   s , v                 horizontal/vertical split (:e filename to load)
     "   =                     normalize size
     "   w                     switch split
     "   o                     close all except this
@@ -96,6 +100,7 @@ set splitright
     " cc                      change line
     " cw                      change word
     " s                       delete a char then insert
+    " r , R                   replace one character/continuous replace
     " -- insert mode
     " (:h ins-special-keys)
     " ctrl+w                  delete previous word
@@ -128,3 +133,6 @@ set splitright
 
 " --- misc ---
     " ~                       switch case
+    " q:                      interactive history
+    " command|vim -           pipe stdout to vim
+    " ctrl+g                  show info of currently opened file
