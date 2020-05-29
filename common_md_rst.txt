@@ -1,0 +1,101 @@
+# Common set between Markdown and reStructured Text
+===================================================
+<https://gist.github.com/1855764>
+
+
+# font style
+------------
+
+ *italic* 
+ **bold** 
+ ``monospace`` 
+
+
+# escape characters
+-------------------
+
+\\ \# \* \` \_ \. \+ \- \!
+\{ \} 
+\[ \] 
+\( \)
+
+
+# horizontal line
+-----------------
+
+****
+
+----
+
+____
+
+
+
+# bullet and numerical list
+---------------------------
+
+*   item1, indent level must match
+    for sublist and line continuation
+    - item a
+    - item b
+    - item c
+*   item2
+    + item I
+    + item II
+    + item III
+*   item3
+    1. numbered item 1
+    2. numbered item 2
+    3. numbered item 3
+
+
+# code block
+------------
+
+End a normal paragraph like this and then indent the following::
+
+    The indedented text will be in monospace
+    with newline and line break preserved
+
+    just make sure level of indentation is matched
+
+
+| same as the above but not monospace  
+| must end each line  
+| with double space  
+
+
+# quote
+-------
+
+ > A block quotation will wrap and flow, and can have *inline*
+ ``markup`` just like a regular paragraph.  It will be indented on
+ the left (and possibly the right) margins, and may have a vertical
+ quotation line on the left.
+
+  >> With two spaces and two right angle brackets, a following block
+  quotation will be doubly indented, and will have a second vertical
+  quotation line along the left if quotation lines are generated.
+
+   >>> A third level of quotation is the maximum level possible.
+
+
+# table
+-------
+
++-------+----------+------+
+| Table Headings   | Here |
++-------+----------+------+
+| Sub   | Headings | Too  |
++=======+==========+======+
+| cell  | column spanning |
++ spans +----------+------+
+| rows  | normal   | cell |
++-------+----------+------+
+| multi | * cells can be  |
+| line  | * formatted     |
+| cells | * paragraphs    |
+| too   |                 |
++-------+-----------------+
+
+
