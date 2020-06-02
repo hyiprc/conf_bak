@@ -10,4 +10,9 @@ git branch -f <branch-name> <new-tip-commit>
 # full form of rebase
 git rebase --onto <anchor-commit> <exclude-reachable-via> <reachable-from>
 
+# patch add a new file
+git add -N         (git add --intent-to-add)
+git add -p         (git add --patch)
+
+
 find . -name "*.orig" -delete
