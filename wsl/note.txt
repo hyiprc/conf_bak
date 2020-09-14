@@ -1,0 +1,16 @@
+# --- run graphic app ---
+
+# install X server
+https://sourceforge.net/projects/vcxsrv/
+
++ During setup, check "Disable access control"
+
++ Windows Security > Firewall & network protection > Allow an app through firewall
+  check both private and public for VcXsrv
+
+# wsl display (add to .bashrc)
+export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
+
+
+
+
