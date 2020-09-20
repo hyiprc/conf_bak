@@ -16,3 +16,12 @@ git add -p         (git add --patch)
 
 
 find . -name "*.orig" -delete
+
+# multiple worktree
+git worktree add <path> <branch>
+# after removing a worktree, do
+git worktree prune
+
+
+# push to non-bare repository, set allow on remote by
+git config --local receive.denyCurrentBranch updateInstead
