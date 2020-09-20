@@ -2,6 +2,8 @@
         name = Henry Chan
         email = hyiprc@gmail.com
         signingkey = 0x6CA0299B50275820
+[init]
+	defaultBranch = base
 [commit]
         gpgsign = false
 [pull]

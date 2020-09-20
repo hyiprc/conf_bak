@@ -1,3 +1,10 @@
+# conventional commit
+# chore, feat, fix, refactor
+
+# set name of first branch
+git init
+git checkout -b <first_branch_name>
+
 # empty commit
 git commit -m "initial commit" -S --allow-empty
 
@@ -14,7 +21,7 @@ git rebase --onto <anchor-commit> <exclude-reachable-via> <reachable-from>
 git add -N         (git add --intent-to-add)
 git add -p         (git add --patch)
 
-
+# clean up after conflit resolve
 find . -name "*.orig" -delete
 
 # multiple worktree
@@ -22,6 +29,10 @@ git worktree add <path> <branch>
 # after removing a worktree, do
 git worktree prune
 
-
 # push to non-bare repository, set allow on remote by
 git config --local receive.denyCurrentBranch updateInstead
+
+# rename a branch
+git branch -m <branch> <new_name>
+git push <repo> -u <new_name>
+git push <repo> -d <branch>
