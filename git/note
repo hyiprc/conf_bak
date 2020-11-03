@@ -11,6 +11,9 @@ git commit -m "initial commit" -S --allow-empty
 # include starting commit (using ^)
 git cherry-pick <starting-commit>^..<ending-commit>
 
+# fast-forwarding a local branch (branch-behind)
+git fetch . <branch-ahead>:<branch-behind>
+
 # move branch pointer to commit
 git branch -f <branch-name> <new-tip-commit>
 
