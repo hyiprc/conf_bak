@@ -1,3 +1,6 @@
+# --- open wsl from url bar in explorer ---
+wt -d .
+
 # --- run graphic app ---
 
 # install X server
