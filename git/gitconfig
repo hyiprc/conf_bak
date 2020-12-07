@@ -17,16 +17,16 @@
 [mergetool]
         prompt = false
 [alias]
-        uncommit = reset --soft HEAD~1
-        discard = !git add -A && git commit -qm 'discard_SAVE' && git reset --hard HEAD~1
-        unstage = reset HEAD --
-        resign = rebase --exec 'git commit --amend --no-edit -n -S' -i
         recommit = "! git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG"
+        rewrite = rebase --exec 'git commit --amend --no-edit -n -S' -i
+        uncommit = reset --soft HEAD~1
+        unstage = reset HEAD --
+        discard = !git add -A && git commit -qm 'discard_SAVE' && git reset --hard HEAD~1
         sync = "!git remote update -p; git merge --ff-only @{u}"
-        conflict = diff --name-only --diff-filter=U
-        s = status -b --show-stash
-        ss = show --name-only
         b = branch -vva
-        d = difftool --tool=vimdiff --no-prompt
         l = log -10 --oneline --all --decorate --graph --date=short \
             --pretty=format:'%C(178)%h %C(88)%ad %C(27)%G? %C(64)%aN  %C(auto)%d%n  %C(255)%<(72,trunc)%s'
+        n = show --format=fuller --name-status --show-signature
+        s = status -b --show-stash -s
+        dd = difftool --tool=vimdiff --no-prompt --trust-exit-code
+        conflict = diff --name-only --diff-filter=U
