@@ -11,11 +11,15 @@
 [core]
 	editor = vim
 [merge]
-        tool = vimdiff
+	tool = diffconflicts
         conflictstyle = diff3
 	ff = only
 [mergetool]
         prompt = false
+	keepBackup = false
+[mergetool "diffconflicts"]
+	cmd = vim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
 [alias]
         recommit = "! git commit -eF $(git rev-parse --git-dir)/COMMIT_EDITMSG"
         rewrite = rebase --exec 'git commit --amend --no-edit -n -S' -i
@@ -26,7 +30,8 @@
         b = branch -vva
         l = log -10 --oneline --all --decorate --graph --date=short \
             --pretty=format:'%C(178)%h %C(88)%ad %C(27)%G? %C(64)%aN  %C(auto)%d%n  %C(255)%<(72,trunc)%s'
-        n = show --format=fuller --name-status --show-signature
+        n = show --format=fuller --name-status --show-signature    # show info of a commit
         s = status -b --show-stash -s
         dd = difftool --tool=vimdiff --no-prompt --trust-exit-code
-        conflict = diff --name-only --diff-filter=U
+        m = diff --name-only --diff-filter=U    # show conflict filenames
+        mm = mergetool --tool=diffconflicts --no-prompt
