@@ -19,6 +19,9 @@ colorscheme grb256
 "set t_Co=256
 
 if !exists("g:syntax_on") | syntax enable | endif
+" highlight itrailing whitespace (two or more)
+highlight EOLWS ctermbg=blue guibg=blue
+autocmd Syntax * syn match EOLWS "\s\s\+$"
 set ruler                 " show line/col in status bar
 set sc                    " Case insensitive search
 set hls                   " highlight search
