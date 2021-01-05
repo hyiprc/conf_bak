@@ -1,6 +1,6 @@
 [submodule "vim/vim/bundle/table-mode"]
 	path = vim/vim/bundle/table-mode
 	url = https://github.com/dhruvasagar/vim-table-mode.git
-[submodule "vim/vim/bundle/vim/vim/bundle/diffconflicts"]
-	path = vim/vim/bundle/vim/vim/bundle/diffconflicts
+[submodule "vim/vim/bundle/diffconflicts"]
+	path = vim/vim/bundle/diffconflicts
 	url = https://github.com/whiteinge/diffconflicts.git
