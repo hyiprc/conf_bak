@@ -7,16 +7,30 @@ if &compatible | set nocompatible | endif
 execute pathogen#infect()
 
 if has('gui_running')
-    :set guifont=DejaVu\ Sans\ Mono\ 14
-    ":set guioptions-=m        " remove menu bar
-    :set guioptions-=T        " remove toolbar
-    ":set guioptions-=r        " remove right-hand scroll bar
+    "set guioptions-=m        " remove menu bar
+    set guioptions-=T        " remove toolbar
+    set guioptions-=r        " remove right-hand scroll bar
+    set lines=43 columns=80 linespace=0
+    if has('gui_win32')
+        set guifont=Cascadia_Mono:h15:cANSI
+        set backspace=2
+        set backspace=indent,eol,start
+    else
+        set guifont=Cascadia\ Mono\ 15
+    endif
 endif
 
 set background=dark " dark or light
+"if filereadable(expand("~/.vimrc_background"))
+"  let base16colorspace=256
+"  source ~/.vimrc_background
+"endif
 colorscheme grb256
+"colorscheme base16-irblack
 "colorscheme summerfruit256
 "set t_Co=256
+":autocmd InsertEnter * set cul
+":autocmd InsertLeave * set nocul
 
 if !exists("g:syntax_on") | syntax enable | endif
 " highlight itrailing whitespace (two or more)
@@ -29,6 +43,7 @@ set incsearch             " start search when typing
 set showmatch             " highlight matching [],{},()
 "set nu!                   " toggle line number
 "set rnu!                  " toggle relative line number
+
 
 " --- fuzzy search ---
 set wildmenu              " show file list
@@ -44,12 +59,47 @@ set path+=**              " recursive search
 " --- abbreviations ---
 :ab #--- # ------------------------------------------
 
+" --- sequence of number ---
+" visual block insert a column of 0
+" gv to reselect then g ctrl+a  (2 g ctrl+a for incr 2)
+
+" --- normal mode ---
+
+" modifier: 
+"   NUM 
+"   i a             inside, around
+
+" operator: 
+"   c d y           change, delete, yank
+"   > <             indent, unindent
+"   gq              format text
+"   ~ gu gU         toggle case, lower, upper
+
+" motion: 
+"   0 $             beginning/end of line
+"   _ g_            first/last non-blank character
+"   gm              half screenwidth
+"   f t F T         find, till forward/backward
+"   ; ,             repeat f t F T
+"   o O             new line
+"   } { ) (         paragraph, sentence
+"   + -             next/previous line first non-blank
+"   %               matching pair
+
+" text object:
+"   w p s           word/paragraph/sentence
+
+" --- visual mode ---
+
+"   o               swap end of selection
+
+
 " --- markdown and rst ---
     " yypVr-                  heading: Underline the current line
     " :g/^Sect/t.|s/./-/g     heading: global search, t. copy line, substitute
 
 " --- wrap text ---
-set lbr                   " wrap text on space
+"set lbr                   " wrap text on space
 set tw=70
 set fo-=t
     " gqip                    wrap paragraph
@@ -65,6 +115,7 @@ set shiftwidth=4
     " ctrl+t , ctrl+d         indent, unindent
 
 " --- vimdiff ---
+    " :windo diffthis         vimdiff current uffer
     " ]c, [c                  next/previous changed line
     " dp, do                  put/obtain changes
     " :diffupdate             rescan files
@@ -98,6 +149,7 @@ set splitbelow
     "   T                     switch to tabs
 
 " --- navigate ---
+" full list: ` # $ % ^ * ( ) 0 _ - + w W e E t T I o O { } [[ [] ][ ]] [m [M ]m ]M [( ]) [{ ]} | A f F ge gE gg G g0 gm g^ g$ g_ g, g; gj gk gI h H j k l L ; ' z. z<CR> z- zz zt zb b B n N M , / ? <C-b> <C-d> <C-e> <C-f> <C-h> <C-i> <C-o> <C-t> <C-u> <C-y>
 "set mouse=a               " enable mouse clicking
     " ctrl+[                  esc
     " :[N]                    go to line N
@@ -115,7 +167,7 @@ set splitbelow
     " ) , (                   next/previous sentence
     " } , {                   next/previous blank line
     " '' , ``                 jump between here and last pos
-    " '.                      jump to last edit
+    " '. , g;                 jump to last edit
     " %                       matching {} [] ()
     " # , *                   search word under cursor
     " -- insert mode
@@ -129,6 +181,8 @@ set splitbelow
     " D                       delete till end of line
     " cc                      change line
     " cw                      change word
+    " ci( , ci"               edit inside ()/quotes
+    " ca( , ca"               same as above but include ()/quotes
     " s                       delete a char then insert
     " r , R                   replace one character/continuous replace
     " -- insert mode
@@ -167,3 +221,6 @@ set splitbelow
     " command|vim -           pipe stdout to vim
     " ctrl+g                  show info of currently opened file
     " :pwd                    current working directory
+"set nrformats=alpha
+    " vblock g ctrl+a         increasing number or letters
+    " :%!python -m json.tool  pretty json formatting
