@@ -5,3 +5,7 @@ alias gs="git status -b --show-stash -s"
 alias gdd="git difftool --tool=vimdiff --no-prompt --trust-exit-code"
 alias gm="git diff --name-only --diff-filter=U"
 alias gmm="git mergetool --tool=diffconflicts --no-prompt"
+
+alias black="black -S -l 79"
+alias isort="isort -l 79 -m 3 --tc --fgw 0 --up -n --profile black"
+alias flake8="flake8 --max-line-length 79 --select B,C,E,F,W,T4 --extend-ignore E203,E501,W503,E266,E402 --max-complexity 18"
