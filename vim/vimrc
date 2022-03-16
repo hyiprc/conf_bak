@@ -151,6 +151,7 @@ set splitbelow
 " --- navigate ---
 " full list: ` # $ % ^ * ( ) 0 _ - + w W e E t T I o O { } [[ [] ][ ]] [m [M ]m ]M [( ]) [{ ]} | A f F ge gE gg G g0 gm g^ g$ g_ g, g; gj gk gI h H j k l L ; ' z. z<CR> z- zz zt zb b B n N M , / ? <C-b> <C-d> <C-e> <C-f> <C-h> <C-i> <C-o> <C-t> <C-u> <C-y>
 "set mouse=a               " enable mouse clicking
+    " gf , :e#                jump to file under cursor, go back
     " ctrl+[                  esc
     " :[N]                    go to line N
     " G                       end of file
