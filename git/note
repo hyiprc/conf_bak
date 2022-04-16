@@ -39,3 +39,11 @@ git config --local receive.denyCurrentBranch updateInstead
 git branch -m <branch> <new_name>
 git push <repo> -u <new_name>
 git push <repo> -d <branch>
+
+git branch -m master main
+git fetch origin
+git branch -u origin/main main
+git remote set-head origin -a
+
+# merge: @{u} - not something we an merge
+git branch -u origin/main main

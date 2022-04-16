@@ -1,6 +1,7 @@
 # --- open wsl from url bar in explorer ---
 wt -d .
 
+
 # --- run graphic app ---
 
 # install X server
@@ -15,5 +16,13 @@ https://sourceforge.net/projects/vcxsrv/
 export DISPLAY="`grep nameserver /etc/resolv.conf | sed 's/nameserver //'`:0"
 
 
+# --- integrate with VSCode ---
 
+add to windows side shortcut target   --remote wsl+Ubuntu
+
+code .  to start vscode within wsl
+
+# setup black isort in vscode
+ctrl+p
+type "> json", select "Preferences: Open Settings (JSON)"
 
